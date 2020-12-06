@@ -1,0 +1,78 @@
+<div class="list row">
+    <h4>User List</h4>         
+      <table class="table" >
+          <thead>
+              <tr >
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>User Name</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>Phone</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor='let u of users, let i = index' >
+                  <td>{{i+1}}</td>
+                  <td><span *ngIf = "idEdit != u.id else elseHiddenName ">{{u.name}}</span>
+                      <ng-template #elseHiddenName>
+                        <input  [value]="u.name | uppercase" [(ngModel)]="nameEdit"/>
+                      </ng-template>
+                   </td>
+                  <td><span *ngIf = "idEdit != u.id else elseHiddenUsername">{{u.username}}</span>
+                      <ng-template #elseHiddenUsername>
+                        <input [value]="u.username | uppercase" [(ngModel)]="usernameEdit">
+                      </ng-template>
+                  </td>
+                  <td><span *ngIf = "idEdit != u.id else elseHiddenEmail">{{u.email}}</span>
+                    <ng-template #elseHiddenEmail>
+                      <input [value]="u.email | uppercase" [(ngModel)]="emailEdit">
+                    </ng-template>
+                  </td>
+                  <td>
+                      <li><span *ngIf = "idEdit != u.id else elseHiddenStreet">{{u.address.street}}</span>
+                        <ng-template #elseHiddenStreet>
+                          <label>Street Edit: </label>
+                          <input [value]="u.address.street | uppercase" [(ngModel)]="addressEdit.streetEdit">
+                        </ng-template>
+                      </li>
+                      <li><span *ngIf = "idEdit != u.id else elseHiddenSuite">{{u.address.suite}}</span>
+                        <ng-template #elseHiddenSuite>
+                          <label>Suite Edit: </label>
+                          <input [value]="u.address.suite | uppercase" [(ngModel)]="addressEdit.suiteEdit">
+                        </ng-template>
+                      </li>
+                      <li><span *ngIf = "idEdit != u.id else elseHiddenCity">{{u.address.city}}</span>
+                        <ng-template #elseHiddenCity>
+                          <label>City Edit: </label>
+                          <input [value]="u.address.city | uppercase" [(ngModel)]="addressEdit.cityEdit">
+                        </ng-template>
+                      </li>
+                      <li><span *ngIf = "idEdit != u.id else elseHiddenZipcode">{{u.address.zipcode}}</span>
+                        <ng-template #elseHiddenZipcode>
+                          <label>Zipcode Edit: </label>
+                          <input [value]="u.address.zipcode | uppercase" [(ngModel)]="addressEdit.zipcodeEdit">
+                        </ng-template>
+                      </li>
+                  </td>
+                  <td><span *ngIf = "idEdit != u.id else elseHiddenPhone">{{u.phone}}</span>
+                      <ng-template #elseHiddenPhone>
+                        <input [value] = "u.phone | uppercase" [(ngModel)]="phoneEdit">
+                      </ng-template>
+                  </td>
+                  <td>
+                      <div class='btn-action'>
+                          <button class="m-4 btn btn-sm btn-danger" *ngIf ="idEdit != u.id else elseSave " (click)="editUser(u.id)">Edit</button>
+                            <ng-template #elseSave>
+                                <button  class="m-4 btn btn-sm btn-danger" (click)="save()">Save</button>
+                            </ng-template>
+                          <button class="m-4 btn btn-sm btn-danger" (click)="deleteUser(u.id)">Delete</button>
+                      </div>
+                      
+                  </td>
+              </tr>
+              
+          </tbody>
+      </table>
+    </div>

@@ -1,0 +1,91 @@
+<div style="width: 500px; margin: auto;">
+    <div class="submit-form">
+      <div >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="nameAdd"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+            <label for="name">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              required
+              [(ngModel)]="usernameAdd"
+              name="username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              required
+              [(ngModel)]="emailAdd"
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Address</label>
+            <input style="margin-top: 5px;"
+              type="text"
+              class="form-control"
+              id="street"
+              required
+              [(ngModel)]="addressAdd.streetAdd"
+              name="street"
+              placeholder="Add Street"
+            />
+            <input style="margin-top: 5px;"
+              type="text"
+              class="form-control"
+              id="suite"
+              required
+              [(ngModel)]="addressAdd.suiteAdd"
+              name="suite"
+              placeholder="Add Suite"
+            />
+            <input style="margin-top: 5px;"
+              type="text"
+              class="form-control"
+              id="city"
+              required
+              [(ngModel)]="addressAdd.cityAdd"
+              name="city"
+              placeholder="Add City"
+            />
+            <input style="margin-top: 5px;"
+              type="text"
+              class="form-control"
+              id="zipcode"
+              required
+              [(ngModel)]="addressAdd.zipcodeAdd"
+              name="zipcode"
+              placeholder="Add Zipcode"
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              required
+              [(ngModel)]="phoneAdd"
+              name="phone"
+            />
+          </div>
+        <button (click)="addUser()">Add</button>
+      </div>
+  
+    </div>
+  </div>
